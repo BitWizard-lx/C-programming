@@ -1,18 +1,20 @@
 #include<stdio.h>
 int main(){
-    int num,code,amount,ID,cash,choice,s=1,c=0,acc,pin;
+ int num,code,amount,ID,cash,choice,s=1,c=0,acc,pin;
     char option;
-    printf("<><><><>><><><>< WELCOME <><><><><><><><>\n");
-    printf(":::::::::enter your card::::::::: \n");
-    printf("----FOR VERIFYING BARCODE---\n");
+    printf("<><><><>><><><>< WELCOME <><><><><><><><>\n   ");
+    printf(":::::::::enter your card::::::::: \n  ");
+    printf("----FOR VERIFYING BARCODE---\n  ");
      scanf("%d",&code);
      printf("please wait for verify the code\n ");
-     printf("*************************************\n");
-    if(code!=1000000000){
-    printf("verified!\n");
+     printf("*************************************\n ");
+    if(code<=10000000){
+    printf(" VERIFIED!\n ");
     }
     else{
-        printf("please check your card\n");
+        printf(" NOT VERIFIED!!\n ");
+        printf("please check your card\n ");
+        return main();
     }
     printf("   NATIONAL OR INTERNATIONAL\n   ");
     printf("~~~~~~~~~~~~~~~~~~~~~~~~\n");
@@ -28,17 +30,9 @@ int main(){
         printf("INTERNATIONAL\n");
     }
     else {
-        printf("criteria not match\n");
-        printf("please take your card\n");
-    }
-    printf("ENTER YOUR 4 DIGIT PIN NUMBER::\n");
-    scanf("%d",&num);
-    if(num<=10000){
-        printf("-----please wait-----\n");
-    }
-    else{
-        printf("Invaild PIN number\n");
-        printf("please re check your PIN number\n");
+        printf(" criteria not match\n  ");
+        printf(" please take your card\n ");
+        return main();
     }
     printf("select your options\n");
     printf("1-WITHDRAWAL\t ");
@@ -50,7 +44,7 @@ int main(){
     printf("7-SERVICE\n");
     scanf("%d",&option);
     switch(option){
-      case 1: 
+        case 1: 
                 printf("<><><><>><><><><WELCOME <><><><><><><><>\n");
                 printf("WITHDRAWAL\n");
                 printf("****************\n");
@@ -69,47 +63,69 @@ int main(){
                 printf("available ATM Balance 500000$\n");
                 printf("AMOUNT\n");
                 scanf("%d",&amount);
+                printf(" ENTER YOUR 4 DIGIT PIN NUMBER::\n ");
+                scanf("%d",&num);
+                if(num<=10000){
+                  printf(" -----please wait-----\n ");
+                }
+                 else{
+                 printf("\nInvaild PIN number!!!\n ");
+                 printf("please re check your PIN number\n ");
+                 return main();
+                }
                 if(amount>=500000){
                         printf("unavilable amount\n");
                 }
                 else{
-                     printf("please wait\n");
+                     printf(" PLEASE WAIT\n  ");
+                     printf(" ~~~~~~~~~~~~~~\n ");
                 }
                 printf("TAKE YOUR CASH AND CARD\n");
                 printf("THANK YOU\n");
+                return main();
                 break;
         case 2:  
                 printf("<><><><>><><><><WELCOME <><><><><><><><>\n");
                 printf("BANKING\n  ");
                 printf("****************\n");
                 printf("SET PIN\t  ");
-                printf("MINI STATEMENT\n");
-                 printf("for SET PIN--click '1'\n");
+                printf("MINI STATEMENT\n  ");
+                printf("for SET PIN--click '1'\n ");
                 printf("for MINI STATEMENT--click '0'\n");
                 printf("enter your choice\n");
                 scanf("%d",&choice);
                 if(choice==1){
-                  printf("enter your 10 digit account number\n");
-               scanf("%d",&acc);
-               printf("ENTER THE 6 DIGIT OTP\n");
-               scanf("%d",&num);
-               printf("SET NEW PIN\n");
-               scanf("%d",&pin);
-               printf("SUCCESFULLY PIN CHANGE\n");
+                    printf("ENTER THE 6 OTP NUMBER\n");
+                    scanf("%d",&num);
+                    printf("enter your 10 digit account number\n");
+                    scanf("%d",&acc);
+                    printf("SET NEW 4 DIGIT PIN\n");
+                    scanf("%d",&pin);
+                    printf("SUCCESFULLY PIN CHANGE\n");
+                    printf("THANK YOU\n");
+                    return main();
                 }
                 else if(choice==0){
-                    printf("ENTER YOUR  4 DIGIT PIN NUMBER\n");
+                    printf(" ENTER YOUR 4 DIGIT PIN NUMBER::\n ");
                     scanf("%d",&num);
+                if(num<=10000){
                     printf("*****PLEASE WAIT******\n");
                     printf("COLLECT YOUR RECIPT\n");
                     printf("THANK YOU\n");
+                    return main();
                 }
-                    else {
-                        printf("temporary issu\n");
+                else if (num>=10000){
+                    printf("\nInvaild PIN number!!!\n ");
+                    printf("please re check your PIN number\n ");
+                    return main();
+                }   
+                else{
+                    printf("temporary issu\n");
                     printf("/////////////////\n");
                     printf("TAKE YOUR CARD\n");
                     printf("PLEASE TRY LATER\n");
                     }
+                    return main();
                     break;
         case 3:
                 printf("<><><><>><><><><WELCOME <><><><><><><><>\n");
@@ -122,6 +138,7 @@ int main(){
                 printf("PIN CHANGE SUCCESFUL1\n");
                 printf("TAKE YOUR CARD\n");
                 printf("THANK YOU\n");
+                return main();
                 break;
         case 4:
                 printf("<><><><>><><><><WELCOME <><><><><><><><>\n");
@@ -158,6 +175,7 @@ int main(){
                 printf("$$$$$$$\n");
                 printf("TAKE YOUR CARD\n");
                 printf("THANK YOU\n");
+                return main();
                 break;
         case 5:
                 printf("<><><><>><><><><WELCOME <><><><><><><><>\n");
@@ -181,6 +199,7 @@ int main(){
                 }
                 printf("TAKE YOUR CARD\n");
                 printf("THANK YOU\n");
+                return main();
                 break;
         case 6:
                 printf("<><><><>><><><><WELCOME <><><><><><><><>\n");
@@ -213,6 +232,7 @@ int main(){
                     }
                 printf("TAKE YOUR CARD\n");
                 printf("THANK YOU\n");
+                return main();
                 break;
         case 7:
                 printf("<><><><>><><><><WELCOME <><><><><><><><>\n");
@@ -266,25 +286,28 @@ int main(){
                 }
                  printf("ENTER YOUR 4 DIGIT PIN NUMBER\n");
                  scanf("%d",&num);
-                 printf("please wait\n");
-                 printf("______________________\n");
-                 printf("CURRENT AVAILABLE CASH\n");
+                 printf(" PLEASE WAIT\n ");
+                 printf(" ______________________\n  ");
+                 printf("CURRENT AVAILABLE CASH\n  ");
                   printf("$$$$$$\n");
                 }
                 else{
                     printf("PLEASE CHECK YOUR OPTION\n");
                 }
-                printf("TAKE YOUR CARD\n");
-                printf("THANK YOU\n");
+                printf("  TAKE YOUR CARD\n  ");
+                printf("  THANK YOU\n  ");
+                return main();
                 break;
         default: 
-                printf("*********!!**!!**!!**!!**!!**!!!!!!*********\n");
-                printf("we regret that this\n");
-                printf("terminal is temporarily\n");
-                printf("OUT OF SERVICE\n");
-                printf("do not re enter your PIN number\n");
-                printf("PLEASE RE CHECK YOUR OPTION\n");
-                printf("THANK YOU\n");        
+                printf("  *********!!**!!**!!**!!**!!**!!!!!!*********\n  ");
+                printf(" WE REGRET THAT THIS\n  ");
+                printf(" TERMINAL IS TEMPORARILY\n  ");
+                printf(" OUT OF SERVICE\n ");
+                printf(" do not re enter your PIN number\n ");
+                printf(" PLEASE RE CHECK YOUR OPTION\n ");
+                printf(" THANK YOU\n ");        
         }
         return 0;
+    }
 }
+    
